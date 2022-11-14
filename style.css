@@ -1,0 +1,199 @@
+:root {
+    --main-color: #000;
+    --secondary-color: #faa12a;
+    --bg-color: #666666;
+    --defaultFontSize: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-size: var(--defaultFontSize);
+    position: relative;
+}
+
+a:active,
+a:visited,
+a:focus,
+a {
+    color: var(--main-color);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+.content {
+    margin-top: 30px;
+}
+
+.top-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+.logo {
+    margin-right: auto;
+}
+
+.mobile-btn-container {
+    width: 30px;
+    height: 21px;
+    position: relative;
+    margin: 5px 0 0 auto;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, width 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, width 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, width 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, width 0.5s ease-in-out;
+    cursor: pointer;
+    display: none;
+}
+
+.mobile-btn__item {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #d3531a;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: top 0.25s ease-in-out, transform 0.25s ease-in-out, opacity 0.25s ease-in-out,
+        width 0.25s ease-in-out;
+    -moz-transition: top 0.25s ease-in-out, transform 0.25s ease-in-out, opacity 0.25s ease-in-out,
+        width 0.25s ease-in-out;
+    -o-transition: top 0.25s ease-in-out, transform 0.25s ease-in-out, opacity 0.25s ease-in-out,
+        width 0.25s ease-in-out;
+    transition: top 0.25s ease-in-out, transform 0.25s ease-in-out, opacity 0.25s ease-in-out, width 0.25s ease-in-out;
+}
+
+.mobile-btn__item:nth-child(1) {
+    top: 0px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+}
+
+.mobile-btn__item:nth-child(2) {
+    top: 9px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+}
+
+.mobile-btn__item:nth-child(3) {
+    top: 18px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+}
+
+.mobile-btn-container.open .mobile-btn__item:nth-child(1) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -3px;
+    left: 2px;
+}
+
+.mobile-btn-container.open .mobile-btn__item:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+}
+
+.mobile-btn-container.open .mobile-btn__item:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 18px;
+    left: 2px;
+}
+
+.disable-scroll {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+    .logo {
+        margin-right: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .top-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        /* height: 100%; */
+    }
+    .mobile-btn-container {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+    .menu {
+        display: none;
+        margin: 0;
+        gap: 40px;
+    }
+
+    .menu__link {
+        font-size: 40px;
+    }
+
+    .menu.open {
+        display: flex;
+        flex-direction: column;
+        height: max-content;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+        align-items: center;
+        height: 100%;
+        justify-content: flex-start;
+        overflow: scroll;
+    }
+    .menu__item {
+        width: max-content;
+    }
+}
